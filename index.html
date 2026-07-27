@@ -1,395 +1,1079 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mendai - Privacy Policy</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mendai Privacy Policy" />
+  <meta name="theme-color" content="#5B3FF5" />
+  <title>Mendai Privacy Policy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
-    /* Global Reset & Base Styling */
+    :root {
+      --mendai-purple: #5B3FF5;
+      --mendai-purple-soft: #F0EDFF;
+      --mendai-purple-border: #DED8FF;
+      --heading-black: #111111;
+      --body-grey: #717171;
+      --page-background: #F8F7FC;
+      --card-background: #FFFFFF;
+      --border: #E9E7F0;
+      --shadow: 0 18px 50px rgba(40, 30, 90, 0.08);
+      --radius-large: 28px;
+      --radius-medium: 18px;
+    }
+
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--page-background);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at top right, rgba(91, 63, 245, 0.08), transparent 32rem),
+        var(--page-background);
+      color: var(--body-grey);
+      font-family: "DM Sans", Arial, sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-header {
+      width: 100%;
+      padding: 22px clamp(20px, 5vw, 72px);
+      border-bottom: 1px solid rgba(222, 216, 255, 0.78);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .site-header-inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      color: var(--mendai-purple);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      text-decoration: none;
+    }
+
+    .header-label {
+      color: var(--heading-black);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .page-shell {
+      width: min(1120px, calc(100% - 40px));
+      margin: 54px auto 72px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(34px, 6vw, 72px);
+      border: 1px solid var(--mendai-purple-border);
+      border-radius: var(--radius-large);
+      background: var(--card-background);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -110px;
+      top: -130px;
+      border-radius: 50%;
+      background: rgba(91, 63, 245, 0.10);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: var(--mendai-purple-soft);
+      color: var(--mendai-purple);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 22px 0 12px;
+      color: var(--mendai-purple);
+      font-size: clamp(36px, 7vw, 68px);
+      font-weight: 700;
+      letter-spacing: -0.055em;
+      line-height: 1.04;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 0;
+      color: var(--heading-black);
+      font-size: clamp(17px, 2.2vw, 22px);
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    .metadata {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .metadata-item {
+      min-width: 210px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #FCFCFE;
+    }
+
+    .metadata-label {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--heading-black);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .metadata-value {
+      color: var(--body-grey);
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(230px, 290px) minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+      margin-top: 28px;
+    }
+
+    .toc-card {
+      position: sticky;
+      top: 98px;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      background: var(--card-background);
+      box-shadow: 0 12px 34px rgba(40, 30, 90, 0.06);
+      scrollbar-width: thin;
+      scrollbar-color: var(--mendai-purple-border) transparent;
+    }
+
+    .toc-card h2 {
+      margin: 0 0 14px;
+      color: var(--heading-black);
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .toc-list {
+      list-style: none;
       margin: 0;
       padding: 0;
     }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #F8F7FF;
-      color: #717171;
-      line-height: 1.6;
-      font-size: 15px;
-      padding: 20px 16px 40px;
-      -webkit-font-smoothing: antialiased;
+    .toc-list li + li {
+      margin-top: 4px;
     }
 
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
+    .toc-list a {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 8px;
+      padding: 8px;
+      border-radius: 10px;
+      color: var(--body-grey);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.35;
+      text-decoration: none;
+      transition: background 160ms ease, color 160ms ease;
     }
 
-    /* Top Metadata Bar */
-    .meta-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      font-size: 14px;
+    .toc-list a:hover,
+    .toc-list a:focus-visible {
+      background: var(--mendai-purple-soft);
+      color: var(--mendai-purple);
+      outline: none;
     }
 
-    .meta-date {
-      color: #000000;
-      font-weight: 600;
-    }
-
-    .version-badge {
-      background-color: #EBE6FF;
-      color: #5B3FF5;
-      padding: 4px 12px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    /* Section Cards */
-    .card {
-      background: #FFFFFF;
-      border-radius: 16px;
-      padding: 24px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 20px rgba(91, 63, 245, 0.04);
-      border: 1px solid rgba(91, 63, 245, 0.08);
-    }
-
-    /* Primary Heading Color */
-    h1, h2 {
-      color: #5B3FF5;
+    .toc-list span {
+      color: var(--mendai-purple);
       font-weight: 700;
+    }
+
+    .policy-card {
+      padding: clamp(24px, 4vw, 46px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-large);
+      background: var(--card-background);
+      box-shadow: 0 14px 40px rgba(40, 30, 90, 0.06);
+    }
+
+    .policy-section {
+      scroll-margin-top: 112px;
+    }
+
+    .policy-section + .policy-section {
+      margin-top: 42px;
+      padding-top: 42px;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      margin-bottom: 16px;
+    }
+
+    .section-number {
+      display: inline-grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 13px;
+      background: var(--mendai-purple-soft);
+      color: var(--mendai-purple);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .section-heading h2 {
+      margin: 4px 0 0;
+      color: var(--mendai-purple);
+      font-size: clamp(21px, 3vw, 27px);
+      font-weight: 700;
+      letter-spacing: -0.035em;
       line-height: 1.3;
     }
 
-    h1 {
-      font-size: 24px;
-      margin-bottom: 8px;
+    .section-content {
+      padding-left: 58px;
     }
 
-    h2 {
-      font-size: 18px;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
+    .section-content p {
+      margin: 0 0 15px;
+      color: var(--body-grey);
     }
 
-    /* Subheading / Label Color */
-    h3, h4, strong, .subheading {
-      color: #000000;
-      font-weight: 600;
-    }
-
-    h3 {
-      font-size: 15px;
-      margin-top: 16px;
-      margin-bottom: 6px;
-    }
-
-    p {
-      color: #717171;
-      margin-bottom: 12px;
-    }
-
-    p:last-child {
+    .section-content p:last-child {
       margin-bottom: 0;
     }
 
-    /* Lists */
-    ul {
-      margin-left: 20px;
-      margin-bottom: 12px;
-      color: #717171;
+    .section-content ul {
+      margin: 10px 0 18px;
+      padding: 0;
+      list-style: none;
     }
 
-    li {
-      margin-bottom: 6px;
+    .section-content li {
+      position: relative;
+      padding-left: 23px;
+      color: var(--body-grey);
     }
 
-    li::marker {
-      color: #5B3FF5;
+    .section-content li + li {
+      margin-top: 8px;
     }
 
-    /* Highlight callout box (as shown in screenshot) */
-    .callout-box {
-      background-color: #EBE6FF;
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 16px;
-      color: #5B3FF5;
-      font-size: 14px;
+    .section-content li::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: 0.78em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--mendai-purple);
+      transform: translateY(-50%);
     }
 
-    .callout-box p {
-      color: #5B3FF5;
+    .inline-link {
+      color: var(--mendai-purple);
+      font-weight: 600;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
     }
 
-    .callout-box strong {
-      color: #5B3FF5;
-    }
-
-    a {
-      color: #5B3FF5;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-text {
+    .footer {
+      margin-top: 28px;
+      padding: 26px 20px;
       text-align: center;
-      font-size: 12px;
-      color: #717171;
-      margin-top: 30px;
+      color: var(--body-grey);
+      font-size: 13px;
+    }
+
+    .footer strong {
+      color: var(--heading-black);
+      font-weight: 700;
+    }
+
+    .back-to-top {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 14px;
+      padding: 10px 15px;
+      border: 1px solid var(--mendai-purple-border);
+      border-radius: 999px;
+      background: var(--card-background);
+      color: var(--mendai-purple);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toc-card {
+        position: static;
+        max-height: none;
+      }
+
+      .toc-list {
+        columns: 2;
+        column-gap: 20px;
+      }
+
+      .toc-list li {
+        break-inside: avoid;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .site-header {
+        padding: 17px 20px;
+      }
+
+      .header-label {
+        display: none;
+      }
+
+      .page-shell {
+        width: min(100% - 24px, 1120px);
+        margin-top: 22px;
+        margin-bottom: 42px;
+      }
+
+      .hero {
+        padding: 28px 22px;
+        border-radius: 22px;
+      }
+
+      .metadata {
+        display: grid;
+      }
+
+      .metadata-item {
+        min-width: 0;
+      }
+
+      .toc-card,
+      .policy-card {
+        border-radius: 20px;
+      }
+
+      .toc-list {
+        columns: 1;
+      }
+
+      .policy-card {
+        padding: 25px 20px;
+      }
+
+      .section-heading {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 11px;
+      }
+
+      .section-number {
+        width: 38px;
+        height: 38px;
+        border-radius: 11px;
+        font-size: 12px;
+      }
+
+      .section-heading h2 {
+        margin-top: 3px;
+      }
+
+      .section-content {
+        padding-left: 0;
+      }
+    }
+
+    @media print {
+      .site-header,
+      .toc-card,
+      .back-to-top {
+        display: none;
+      }
+
+      body {
+        background: #FFFFFF;
+        font-size: 11pt;
+      }
+
+      .page-shell {
+        width: 100%;
+        margin: 0;
+      }
+
+      .hero,
+      .policy-card {
+        border: none;
+        box-shadow: none;
+      }
+
+      .content-grid {
+        display: block;
+      }
+
+      .policy-section {
+        break-inside: avoid;
+      }
     }
   </style>
 </head>
-<body>
+<body id="top">
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="#top" aria-label="Mendai home">Mendai</a>
+      <span class="header-label">Privacy Policy</span>
+    </div>
+  </header>
 
-<div class="container">
+  <main class="page-shell">
+    <section class="hero" aria-labelledby="page-title">
+      <span class="eyebrow">Legal &amp; Privacy</span>
+      <h1 id="page-title">Mendai Privacy Policy</h1>
+      <p class="subtitle">Part 1 – Introduction, Scope, Information We Collect, AI Processing, and Account Information</p>
 
-  <!-- Meta Header -->
-  <div class="meta-bar">
-    <div class="meta-date">Effective: July 1, 2026</div>
-    <div class="version-badge">Last Updated: July 25, 2026</div>
+      <div class="metadata" aria-label="Policy dates">
+        <div class="metadata-item">
+          <span class="metadata-label">Effective Date</span>
+          <span class="metadata-value">07/01/2026</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Last Updated</span>
+          <span class="metadata-value">07/25/2026</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="content-grid">
+      <nav class="toc-card" aria-label="Privacy policy contents">
+        <h2>Contents</h2>
+        <ol class="toc-list">
+          <li><a href="#section-1"><span>01</span>Introduction</a></li><li><a href="#section-2"><span>02</span>Our Commitment to Privacy</a></li><li><a href="#section-3"><span>03</span>Scope</a></li><li><a href="#section-4"><span>04</span>Information We Collect</a></li><li><a href="#section-5"><span>05</span>Information You Provide</a></li><li><a href="#section-6"><span>06</span>AI Guide Conversations</a></li><li><a href="#section-7"><span>07</span>AI Memory</a></li><li><a href="#section-8"><span>08</span>AI Matching Information</a></li><li><a href="#section-9"><span>09</span>Information Collected Automatically</a></li><li><a href="#section-10"><span>10</span>Usage Information</a></li><li><a href="#section-11"><span>11</span>Location Information</a></li><li><a href="#section-12"><span>12</span>Contacts</a></li><li><a href="#section-13"><span>13</span>Camera, Photos, and Microphone</a></li><li><a href="#section-14"><span>14</span>Payment Information</a></li><li><a href="#section-15"><span>15</span>Information from Third Parties</a></li><li><a href="#section-16"><span>16</span>Information Related to Safety</a></li><li><a href="#section-17"><span>17</span>Sensitive Information</a></li><li><a href="#section-18"><span>18</span>Information You Should Not Share</a></li><li><a href="#section-19"><span>19</span>Accuracy of Information</a></li><li><a href="#section-20"><span>20</span>Changes in Information Collected</a></li><li><a href="#section-21"><span>21</span>How We Use Information</a></li><li><a href="#section-22"><span>22</span>AI Personalization</a></li><li><a href="#section-23"><span>23</span>Automated Decision-Making</a></li><li><a href="#section-24"><span>24</span>Improving Artificial Intelligence</a></li><li><a href="#section-25"><span>25</span>Safety and Security</a></li><li><a href="#section-26"><span>26</span>Customer Support</a></li><li><a href="#section-27"><span>27</span>Communications</a></li><li><a href="#section-28"><span>28</span>Notifications</a></li><li><a href="#section-29"><span>29</span>Analytics</a></li><li><a href="#section-30"><span>30</span>Cookies and Similar Technologies</a></li><li><a href="#section-31"><span>31</span>Advertising</a></li><li><a href="#section-32"><span>32</span>Sharing Information with Service Providers</a></li><li><a href="#section-33"><span>33</span>Business Transactions</a></li><li><a href="#section-34"><span>34</span>Legal Compliance</a></li><li><a href="#section-35"><span>35</span>Protection of Rights</a></li><li><a href="#section-36"><span>36</span>Aggregated and De-Identified Information</a></li><li><a href="#section-37"><span>37</span>International Data Transfers</a></li><li><a href="#section-38"><span>38</span>Data Accuracy</a></li><li><a href="#section-39"><span>39</span>No Sale of Personal Information</a></li><li><a href="#section-40"><span>40</span>Data Minimization</a></li><li><a href="#section-41"><span>41</span>Your Privacy Rights</a></li><li><a href="#section-42"><span>42</span>Access Requests</a></li><li><a href="#section-43"><span>43</span>Correction of Information</a></li><li><a href="#section-44"><span>44</span>Deletion Requests</a></li><li><a href="#section-45"><span>45</span>Account Deletion</a></li><li><a href="#section-46"><span>46</span>AI Memory Controls</a></li><li><a href="#section-47"><span>47</span>Data Portability</a></li><li><a href="#section-48"><span>48</span>California Privacy Rights</a></li><li><a href="#section-49"><span>49</span>European Privacy Rights</a></li><li><a href="#section-50"><span>50</span>Children’s Privacy</a></li><li><a href="#section-51"><span>51</span>Security Measures</a></li><li><a href="#section-52"><span>52</span>Security Responsibilities of Users</a></li><li><a href="#section-53"><span>53</span>Data Retention</a></li><li><a href="#section-54"><span>54</span>Backups</a></li><li><a href="#section-55"><span>55</span>Data Breaches</a></li><li><a href="#section-56"><span>56</span>International Users</a></li><li><a href="#section-57"><span>57</span>Third-Party Links</a></li><li><a href="#section-58"><span>58</span>Changes to This Privacy Policy</a></li><li><a href="#section-59"><span>59</span>Contact Information</a></li><li><a href="#section-60"><span>60</span>Acknowledgment</a></li>
+        </ol>
+      </nav>
+
+      <article class="policy-card" aria-label="Mendai Privacy Policy">
+        
+<section class="policy-section" id="section-1">
+  <div class="section-heading">
+    <span class="section-number">01</span>
+    <h2>Introduction</h2>
   </div>
-
-  <!-- Header Card -->
-  <div class="card">
-    <h1>MENDAI PRIVACY POLICY</h1>
-    <p style="font-size: 13px; color: #717171;">Part 1 – Introduction, Scope, Information We Collect, AI Processing, and Account Information</p>
+  <div class="section-content">
+    <p>Your privacy is important to us. This Privacy Policy explains how Mendai collects, uses, stores, processes, protects, and shares information when you access or use:</p><ul><li>the Mendai mobile application;</li><li>AI Guide;</li><li>AI-powered matching services;</li><li>messaging features;</li><li>profile features;</li><li>future Mendai products and services;</li><li>websites operated by Mendai; and</li><li>any related software, APIs, and digital services (collectively, the “Service”).</li></ul><p>By creating an account or using the Service, you acknowledge that you have read this Privacy Policy.</p><p>If you do not agree with this Privacy Policy, please do not use the Service.</p>
   </div>
-
-  <!-- Section 1 & 2 -->
-  <div class="card">
-    <h2>1. Introduction</h2>
-    <p>Welcome to Mendai (“Mendai,” “we,” “our,” or “us”).</p>
-    <p>Your privacy is important to us. This Privacy Policy explains how Mendai collects, uses, stores, processes, protects, and shares information when you access or use:</p>
-    <ul>
-      <li>the Mendai mobile application;</li>
-      <li>AI Guide;</li>
-      <li>AI-powered matching services;</li>
-      <li>messaging features;</li>
-      <li>profile features;</li>
-      <li>future Mendai products and services;</li>
-      <li>websites operated by Mendai; and</li>
-      <li>any related software, APIs, and digital services (collectively, the “Service”).</li>
-    </ul>
-    <p>By creating an account or using the Service, you acknowledge that you have read this Privacy Policy.</p>
-    <p>If you do not agree with this Privacy Policy, please do not use the Service.</p>
-
-    <h2 style="margin-top: 24px;">2. Our Commitment to Privacy</h2>
-    <p>Mendai is committed to handling personal information responsibly.</p>
-    <p>We strive to:</p>
-    <ul>
-      <li>collect only information reasonably necessary to operate and improve the Service;</li>
-      <li>provide users with meaningful privacy choices where available;</li>
-      <li>use reasonable administrative, technical, and physical safeguards to protect personal information;</li>
-      <li>comply with applicable privacy laws.</li>
-    </ul>
+</section>
+<section class="policy-section" id="section-2">
+  <div class="section-heading">
+    <span class="section-number">02</span>
+    <h2>Our Commitment to Privacy</h2>
   </div>
-
-  <!-- Section 3 & 4 & 5 -->
-  <div class="card">
-    <h2>3. Scope</h2>
-    <p>This Privacy Policy applies to information collected:</p>
-    <ul>
-      <li>through the Mendai application;</li>
-      <li>through our websites;</li>
-      <li>through AI Guide interactions;</li>
-      <li>through customer support communications;</li>
-      <li>during account registration;</li>
-      <li>during use of AI matching features;</li>
-      <li>through surveys, feedback, and promotions operated by Mendai.</li>
-    </ul>
-    <p>This Privacy Policy does not apply to information collected by third-party websites or services that are governed by their own privacy policies.</p>
-
-    <h2 style="margin-top: 24px;">4. Information We Collect</h2>
-    <p>Depending on how you use Mendai, we may collect different categories of information. These categories may include:</p>
-    <ul>
-      <li>personal information; account information; profile information;</li>
-      <li>device information; technical information; communications;</li>
-      <li>AI interactions; usage information; payment-related information;</li>
-      <li>safety and moderation information.</li>
-    </ul>
-
-    <h2 style="margin-top: 24px;">5. Information You Provide</h2>
-    <p>You may voluntarily provide information including:</p>
-    <ul>
-      <li>your name, username, email address, password, profile photograph, biography;</li>
-      <li>age or date of birth (where applicable), gender identity (if provided), pronouns (if provided);</li>
-      <li>interests, hobbies, goals, languages, relationship preferences;</li>
-      <li>location you choose to share, profile descriptions, social links you choose to include;</li>
-      <li>uploaded images, videos, audio, messages, comments, reactions, feedback, customer support communications.</li>
-    </ul>
-    <p>You may choose not to provide certain information; however, doing so may limit your ability to use certain features.</p>
+  <div class="section-content">
+    <p>We strive to:</p><ul><li>collect only information reasonably necessary to operate and improve the Service;</li><li>provide users with meaningful privacy choices where available;</li><li>use reasonable administrative, technical, and physical safeguards to protect personal information;</li><li>comply with applicable privacy laws.</li></ul>
   </div>
-
-  <!-- Section 6, 7, 8 (AI Features) -->
-  <div class="card">
-    <h2>6. AI Guide Conversations</h2>
-    <p>If you communicate with the AI Guide, we may collect information contained within those conversations. This may include information that you voluntarily share, such as:</p>
-    <ul>
-      <li>interests, goals, hobbies, preferences, life experiences;</li>
-      <li>communication style, requested topics, feedback, and other provided details.</li>
-    </ul>
-
-    <div class="callout-box">
-      <strong>Notice on AI Sharing:</strong>
-      <p>We encourage users not to share information they are uncomfortable sharing with any online service.</p>
+</section>
+<section class="policy-section" id="section-3">
+  <div class="section-heading">
+    <span class="section-number">03</span>
+    <h2>Scope</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>through the Mendai application;</li><li>through our websites;</li><li>through AI Guide interactions;</li><li>through customer support communications;</li><li>during account registration;</li><li>during use of AI matching features;</li><li>through surveys, feedback, and promotions operated by Mendai.</li></ul><p>This Privacy Policy does not apply to information collected by third-party websites or services that are governed by their own privacy policies.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-4">
+  <div class="section-heading">
+    <span class="section-number">04</span>
+    <h2>Information We Collect</h2>
+  </div>
+  <div class="section-content">
+    <p>These categories may include:</p><ul><li>personal information;</li><li>account information;</li><li>profile information;</li><li>device information;</li><li>technical information;</li><li>communications;</li><li>AI interactions;</li><li>usage information;</li><li>payment-related information;</li><li>safety and moderation information.</li></ul>
+  </div>
+</section>
+<section class="policy-section" id="section-5">
+  <div class="section-heading">
+    <span class="section-number">05</span>
+    <h2>Information You Provide</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>your name;</li><li>username;</li><li>email address;</li><li>password;</li><li>profile photograph;</li><li>biography;</li><li>age or date of birth (where applicable);</li><li>gender identity (if provided);</li><li>pronouns (if provided);</li><li>interests;</li><li>hobbies;</li><li>goals;</li><li>languages;</li><li>relationship preferences;</li><li>location you choose to share;</li><li>profile descriptions;</li><li>social links you choose to include;</li><li>uploaded images;</li><li>uploaded videos;</li><li>uploaded audio;</li><li>messages;</li><li>comments;</li><li>reactions;</li><li>feedback;</li><li>customer support communications.</li></ul><p>You may choose not to provide certain information; however, doing so may limit your ability to use certain features.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-6">
+  <div class="section-heading">
+    <span class="section-number">06</span>
+    <h2>AI Guide Conversations</h2>
+  </div>
+  <div class="section-content">
+    <p>This may include information that you voluntarily share, such as:</p><ul><li>interests;</li><li>goals;</li><li>hobbies;</li><li>preferences;</li><li>life experiences;</li><li>communication style;</li><li>requested topics;</li><li>feedback;</li><li>other information you choose to provide.</li></ul><p>We encourage users not to share information they are uncomfortable sharing with any online service.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-7">
+  <div class="section-heading">
+    <span class="section-number">07</span>
+    <h2>AI Memory</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>personalize future conversations;</li><li>improve continuity;</li><li>remember preferences;</li><li>provide contextually relevant responses;</li><li>improve matching recommendations.</li></ul><p>Where available, Mendai may provide tools allowing users to review, edit, or delete AI memory associated with their account.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-8">
+  <div class="section-heading">
+    <span class="section-number">08</span>
+    <h2>AI Matching Information</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>profile details;</li><li>selected interests;</li><li>communication preferences;</li><li>optional questionnaires;</li><li>interactions within the Service;</li><li>engagement with AI Guide;</li><li>community participation;</li><li>other information described in this Privacy Policy.</li></ul><p>AI-generated recommendations are based on automated systems and may not always be accurate or complete.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-9">
+  <div class="section-heading">
+    <span class="section-number">09</span>
+    <h2>Information Collected Automatically</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>device model;</li><li>operating system;</li><li>application version;</li><li>language settings;</li><li>device identifiers where permitted by law;</li><li>IP address;</li><li>approximate location derived from IP (where applicable);</li><li>crash reports;</li><li>performance diagnostics;</li><li>network information;</li><li>log data;</li><li>security events.</li></ul><p>This information helps us operate, maintain, secure, and improve the Service.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-10">
+  <div class="section-heading">
+    <span class="section-number">10</span>
+    <h2>Usage Information</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>features accessed;</li><li>pages viewed;</li><li>screens visited;</li><li>buttons selected;</li><li>searches performed;</li><li>AI conversations initiated;</li><li>session duration;</li><li>interactions with recommendations;</li><li>content engagement;</li><li>account settings.</li></ul><p>This information helps us understand how the Service is used and improve the user experience.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-11">
+  <div class="section-heading">
+    <span class="section-number">11</span>
+    <h2>Location Information</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>approximate location;</li><li>city;</li><li>state or province;</li><li>country;</li><li>device-provided location if you choose to enable it.</li></ul><p>You may control certain location permissions through your device settings.</p><p>Certain features may be unavailable without location access.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-12">
+  <div class="section-heading">
+    <span class="section-number">12</span>
+    <h2>Contacts</h2>
+  </div>
+  <div class="section-content">
+    <p>Granting access is optional.</p><p>You may revoke access through your device settings.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-13">
+  <div class="section-heading">
+    <span class="section-number">13</span>
+    <h2>Camera, Photos, and Microphone</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>camera;</li><li>photo library;</li><li>microphone.</li></ul><p>These permissions are used only to support features you choose to use, such as:</p><ul><li>profile photos;</li><li>uploading videos;</li><li>voice messages;</li><li>AI voice conversations;</li><li>video messages.</li></ul><p>You may revoke permissions through your device settings.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-14">
+  <div class="section-heading">
+    <span class="section-number">14</span>
+    <h2>Payment Information</h2>
+  </div>
+  <div class="section-content">
+    <p>Mendai generally does not receive your complete payment card number.</p><p>We may receive limited information such as:</p><ul><li>purchase confirmation;</li><li>subscription status;</li><li>transaction identifiers;</li><li>billing country;</li><li>expiration information necessary to manage subscriptions.</li></ul>
+  </div>
+</section>
+<section class="policy-section" id="section-15">
+  <div class="section-heading">
+    <span class="section-number">15</span>
+    <h2>Information from Third Parties</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>app stores;</li><li>authentication providers;</li><li>analytics providers;</li><li>fraud prevention providers;</li><li>security providers;</li><li>customer support providers.</li></ul><p>We use this information only for purposes consistent with this Privacy Policy and applicable law.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-16">
+  <div class="section-heading">
+    <span class="section-number">16</span>
+    <h2>Information Related to Safety</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>user reports;</li><li>moderation actions;</li><li>blocked accounts;</li><li>account warnings;</li><li>appeals;</li><li>investigations;</li><li>abuse prevention;</li><li>fraud prevention;</li><li>security incidents.</li></ul><p>These records help us investigate violations, enforce our policies, and protect users.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-17">
+  <div class="section-heading">
+    <span class="section-number">17</span>
+    <h2>Sensitive Information</h2>
+  </div>
+  <div class="section-content">
+    <p>Examples may include discussions of:</p><ul><li>emotional well-being;</li><li>life experiences;</li><li>personal challenges;</li><li>religious beliefs;</li><li>political opinions;</li><li>sexual orientation;</li><li>racial or ethnic background;</li><li>health-related topics.</li></ul><p>Mendai requests that users exercise caution before sharing sensitive information.</p><p>Where applicable, we will process sensitive personal information in accordance with applicable law.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-18">
+  <div class="section-heading">
+    <span class="section-number">18</span>
+    <h2>Information You Should Not Share</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>Social Security numbers;</li><li>driver’s license numbers;</li><li>passport numbers;</li><li>banking credentials;</li><li>credit card numbers in chat;</li><li>account passwords;</li><li>security question answers;</li><li>cryptocurrency wallet recovery phrases;</li><li>confidential business information;</li><li>other highly sensitive information unless specifically required for a legitimate feature.</li></ul>
+  </div>
+</section>
+<section class="policy-section" id="section-19">
+  <div class="section-heading">
+    <span class="section-number">19</span>
+    <h2>Accuracy of Information</h2>
+  </div>
+  <div class="section-content">
+    <p>Providing inaccurate or misleading information may affect the quality of AI recommendations and other features.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-20">
+  <div class="section-heading">
+    <span class="section-number">20</span>
+    <h2>Changes in Information Collected</h2>
+  </div>
+  <div class="section-content">
+    <p>If we materially change our information collection practices, we will update this Privacy Policy and provide notice where required by applicable law.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-21">
+  <div class="section-heading">
+    <span class="section-number">21</span>
+    <h2>How We Use Information</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>create and manage user accounts;</li><li>provide AI-powered matching recommendations;</li><li>operate the AI Guide;</li><li>personalize the user experience;</li><li>improve compatibility recommendations;</li><li>display user profiles according to privacy settings;</li><li>facilitate communication between users;</li><li>provide customer support;</li><li>process subscriptions and purchases;</li><li>verify accounts where applicable;</li><li>investigate abuse or fraud;</li><li>maintain platform security;</li><li>improve accessibility;</li><li>monitor system performance;</li><li>develop new features;</li><li>perform research and analytics using de-identified or aggregated information where appropriate;</li><li>comply with legal obligations; and</li><li>enforce our Terms and Community Guidelines.</li></ul>
+  </div>
+</section>
+<section class="policy-section" id="section-22">
+  <div class="section-heading">
+    <span class="section-number">22</span>
+    <h2>AI Personalization</h2>
+  </div>
+  <div class="section-content">
+    <p>AI systems may use information you voluntarily provide to:</p><ul><li>personalize conversations;</li><li>remember preferences where AI memory is enabled;</li><li>identify interests;</li><li>recommend compatible users;</li><li>improve the relevance of recommendations;</li><li>organize information you choose to share;</li><li>improve future AI interactions.</li></ul><p>AI recommendations are generated using automated systems and may be incomplete, inaccurate, or change over time.</p><p>Users should exercise independent judgment and should not rely solely on AI-generated recommendations when making important personal decisions.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-23">
+  <div class="section-heading">
+    <span class="section-number">23</span>
+    <h2>Automated Decision-Making</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>compatibility recommendations;</li><li>content ranking;</li><li>spam detection;</li><li>fraud detection;</li><li>abuse prevention;</li><li>account security;</li><li>content moderation support;</li><li>recommendation quality.</li></ul><p>Where required by applicable law, users may have rights related to certain automated decisions. Any such rights will be honored as required by applicable law.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-24">
+  <div class="section-heading">
+    <span class="section-number">24</span>
+    <h2>Improving Artificial Intelligence</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>improve AI accuracy;</li><li>improve safety systems;</li><li>identify errors;</li><li>reduce harmful outputs;</li><li>improve conversation quality;</li><li>improve matching algorithms;</li><li>evaluate model performance.</li></ul><p>Where information is used for research or improvement, Mendai may use de-identified, anonymized, or aggregated information whenever reasonably practicable.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-25">
+  <div class="section-heading">
+    <span class="section-number">25</span>
+    <h2>Safety and Security</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>detecting suspicious activity;</li><li>preventing unauthorized access;</li><li>investigating abuse;</li><li>identifying fake accounts;</li><li>preventing scams;</li><li>detecting spam;</li><li>identifying malware;</li><li>protecting children from exploitation;</li><li>responding to reports;</li><li>complying with legal requests.</li></ul><p>We may use both automated systems and human review where appropriate.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-26">
+  <div class="section-heading">
+    <span class="section-number">26</span>
+    <h2>Customer Support</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>respond to questions;</li><li>investigate reported issues;</li><li>resolve technical problems;</li><li>process appeals;</li><li>improve customer service;</li><li>communicate about account-related matters.</li></ul><p>Support communications may be retained for quality assurance, training, fraud prevention, and legal compliance.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-27">
+  <div class="section-heading">
+    <span class="section-number">27</span>
+    <h2>Communications</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>account verification;</li><li>password resets;</li><li>security alerts;</li><li>subscription status;</li><li>billing information;</li><li>product updates;</li><li>new features;</li><li>service announcements;</li><li>policy updates;</li><li>customer support.</li></ul><p>Where required by law, users may opt out of certain promotional communications while continuing to receive essential service-related communications.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-28">
+  <div class="section-heading">
+    <span class="section-number">28</span>
+    <h2>Notifications</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>push notifications;</li><li>in-app notifications;</li><li>email notifications;</li><li>SMS notifications (where applicable and with appropriate consent).</li></ul><p>You may manage many notification preferences through your account settings or your device settings.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-29">
+  <div class="section-heading">
+    <span class="section-number">29</span>
+    <h2>Analytics</h2>
+  </div>
+  <div class="section-content">
+    <p>Analytics information may include:</p><ul><li>feature usage;</li><li>screen views;</li><li>navigation paths;</li><li>session duration;</li><li>device type;</li><li>operating system;</li><li>crash information;</li><li>interaction with AI features.</li></ul><p>Analytics help us improve performance, reliability, accessibility, and user experience.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-30">
+  <div class="section-heading">
+    <span class="section-number">30</span>
+    <h2>Cookies and Similar Technologies</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>cookies;</li><li>pixels;</li><li>local storage;</li><li>software development kits (SDKs);</li><li>similar technologies.</li></ul><p>These technologies may be used to:</p><ul><li>remember preferences;</li><li>maintain sessions;</li><li>improve security;</li><li>understand usage patterns;</li><li>support authentication;</li><li>measure performance.</li></ul><p>Where required by law, consent will be obtained before placing certain non-essential cookies or similar technologies.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-31">
+  <div class="section-heading">
+    <span class="section-number">31</span>
+    <h2>Advertising</h2>
+  </div>
+  <div class="section-content">
+    <p>If personalized advertising is offered, Mendai may use information consistent with this Privacy Policy and applicable law.</p><p>Where legally required, users will be provided with appropriate choices regarding personalized advertising.</p><p>Mendai does not sell personal information where prohibited by applicable law.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-32">
+  <div class="section-heading">
+    <span class="section-number">32</span>
+    <h2>Sharing Information with Service Providers</h2>
+  </div>
+  <div class="section-content">
+    <p>These providers may include:</p><ul><li>cloud hosting providers;</li><li>payment processors;</li><li>customer support providers;</li><li>email delivery providers;</li><li>analytics providers;</li><li>fraud prevention providers;</li><li>security providers;</li><li>infrastructure providers;</li><li>identity verification providers.</li></ul><p>These providers are authorized to process personal information only as necessary to perform services on our behalf or as otherwise permitted by law.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-33">
+  <div class="section-heading">
+    <span class="section-number">33</span>
+    <h2>Business Transactions</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>a merger;</li><li>acquisition;</li><li>financing;</li><li>bankruptcy;</li><li>reorganization;</li><li>sale of assets; or</li><li>similar corporate transaction,</li></ul><p>personal information may be transferred as part of that transaction, subject to applicable law.</p><p>Users will be notified where required by law.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-34">
+  <div class="section-heading">
+    <span class="section-number">34</span>
+    <h2>Legal Compliance</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>comply with applicable law;</li><li>comply with legal process;</li><li>respond to subpoenas;</li><li>respond to court orders;</li><li>cooperate with law enforcement;</li><li>investigate fraud;</li><li>investigate threats;</li><li>protect users;</li><li>protect Mendai’s rights or property;</li><li>enforce our Terms;</li><li>prevent imminent harm where permitted by law.</li></ul>
+  </div>
+</section>
+<section class="policy-section" id="section-35">
+  <div class="section-heading">
+    <span class="section-number">35</span>
+    <h2>Protection of Rights</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>establish legal claims;</li><li>defend against legal claims;</li><li>enforce contracts;</li><li>investigate violations;</li><li>prevent fraud;</li><li>protect intellectual property;</li><li>protect public safety.</li></ul>
+  </div>
+</section>
+<section class="policy-section" id="section-36">
+  <div class="section-heading">
+    <span class="section-number">36</span>
+    <h2>Aggregated and De-Identified Information</h2>
+  </div>
+  <div class="section-content">
+    <p>Such information may be used for:</p><ul><li>research;</li><li>analytics;</li><li>product development;</li><li>service improvement;</li><li>statistical reporting;</li><li>business planning.</li></ul><p>Where information has been de-identified, Mendai will take reasonable measures designed to prevent re-identification, consistent with applicable law.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-37">
+  <div class="section-heading">
+    <span class="section-number">37</span>
+    <h2>International Data Transfers</h2>
+  </div>
+  <div class="section-content">
+    <p>Where required by applicable law, Mendai will implement appropriate safeguards for international data transfers.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-38">
+  <div class="section-heading">
+    <span class="section-number">38</span>
+    <h2>Data Accuracy</h2>
+  </div>
+  <div class="section-content">
+    <p>Accurate information helps improve:</p><ul><li>AI recommendations;</li><li>matching quality;</li><li>account security;</li><li>customer support;</li><li>communications.</li></ul><p>You may update many account details through your profile settings.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-39">
+  <div class="section-heading">
+    <span class="section-number">39</span>
+    <h2>No Sale of Personal Information</h2>
+  </div>
+  <div class="section-content">
+    <p>If applicable privacy laws define “sale” or “sharing” more broadly, Mendai will comply with those laws and provide any required rights or opt-out mechanisms.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-40">
+  <div class="section-heading">
+    <span class="section-number">40</span>
+    <h2>Data Minimization</h2>
+  </div>
+  <div class="section-content">
+    <p>Where reasonably practicable, we seek to limit the amount of personal information collected, retained, and processed.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-41">
+  <div class="section-heading">
+    <span class="section-number">41</span>
+    <h2>Your Privacy Rights</h2>
+  </div>
+  <div class="section-content">
+    <p>Depending on your jurisdiction, these rights may include the ability to:</p><ul><li>request access to your personal information;</li><li>request correction of inaccurate information;</li><li>request deletion of eligible personal information;</li><li>request a copy of certain personal information;</li><li>request information about how your information is processed;</li><li>object to certain processing activities where permitted by law;</li><li>withdraw consent where processing is based on consent;</li><li>request restriction of certain processing activities where permitted by law;</li><li>exercise additional rights available under applicable privacy laws.</li></ul><p>These rights are not absolute and may be subject to exceptions permitted by law.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-42">
+  <div class="section-heading">
+    <span class="section-number">42</span>
+    <h2>Access Requests</h2>
+  </div>
+  <div class="section-content">
+    <p>Subject to applicable law, Mendai may verify your identity before fulfilling any request.</p><p>Requests that cannot be verified may be denied to protect user privacy and security.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-43">
+  <div class="section-heading">
+    <span class="section-number">43</span>
+    <h2>Correction of Information</h2>
+  </div>
+  <div class="section-content">
+    <p>If you believe Mendai maintains inaccurate personal information that cannot be corrected through your account, you may submit a request for correction.</p><p>Mendai may request documentation reasonably necessary to verify the requested correction.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-44">
+  <div class="section-heading">
+    <span class="section-number">44</span>
+    <h2>Deletion Requests</h2>
+  </div>
+  <div class="section-content">
+    <p>Please note that deletion requests may not result in the immediate removal of all information.</p><p>Mendai may retain certain information where reasonably necessary to:</p><ul><li>comply with legal obligations;</li><li>resolve disputes;</li><li>enforce agreements;</li><li>investigate abuse;</li><li>detect fraud;</li><li>protect platform security;</li><li>preserve evidence relating to legal claims;</li><li>comply with lawful requests from governmental authorities.</li></ul><p>Where deletion is approved, Mendai will make commercially reasonable efforts to delete or de-identify eligible information in accordance with applicable law.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-45">
+  <div class="section-heading">
+    <span class="section-number">45</span>
+    <h2>Account Deletion</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>your profile may no longer be visible to other users;</li><li>future access to your account may not be possible;</li><li>subscriptions should be canceled separately through the applicable app store if required;</li><li>certain information may remain in backups for a limited period;</li><li>certain information may be retained as required by law or for legitimate business purposes.</li></ul><p>Deletion of an account does not automatically remove content that has been shared with other users where retention is reasonably necessary or otherwise permitted by law.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-46">
+  <div class="section-heading">
+    <span class="section-number">46</span>
+    <h2>AI Memory Controls</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>review remembered information;</li><li>delete remembered information;</li><li>modify remembered preferences;</li><li>disable AI memory features where supported.</li></ul><p>Deleting AI memory may reduce the personalization of future AI interactions.</p><p>Some information may continue to be retained separately where required for legal compliance, security, fraud prevention, or operational integrity.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-47">
+  <div class="section-heading">
+    <span class="section-number">47</span>
+    <h2>Data Portability</h2>
+  </div>
+  <div class="section-content">
+    <p>This right applies only to information that is legally required to be made portable.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-48">
+  <div class="section-heading">
+    <span class="section-number">48</span>
+    <h2>California Privacy Rights</h2>
+  </div>
+  <div class="section-content">
+    <p>Subject to applicable law, California residents may have rights relating to:</p><ul><li>access;</li><li>correction;</li><li>deletion;</li><li>data portability;</li><li>certain uses of sensitive personal information;</li><li>certain sharing or sale activities as defined by California law.</li></ul><p>Mendai will honor verified requests in accordance with applicable California law.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-49">
+  <div class="section-heading">
+    <span class="section-number">49</span>
+    <h2>European Privacy Rights</h2>
+  </div>
+  <div class="section-content">
+    <p>These rights may include:</p><ul><li>access;</li><li>rectification;</li><li>erasure;</li><li>restriction of processing;</li><li>objection to certain processing;</li><li>data portability;</li><li>withdrawal of consent where consent is the legal basis for processing.</li></ul><p>Mendai will comply with applicable legal requirements where these laws apply.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-50">
+  <div class="section-heading">
+    <span class="section-number">50</span>
+    <h2>Children’s Privacy</h2>
+  </div>
+  <div class="section-content">
+    <p>We do not knowingly collect personal information from children in violation of applicable law.</p><p>If Mendai becomes aware that personal information has been collected from a child in violation of applicable law, we will take reasonable steps to delete such information as required.</p><p>Parents or legal guardians who believe that a child has provided personal information in violation of this Privacy Policy may contact Mendai using the contact information provided below.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-51">
+  <div class="section-heading">
+    <span class="section-number">51</span>
+    <h2>Security Measures</h2>
+  </div>
+  <div class="section-content">
+    <p>Examples may include:</p><ul><li>encryption in transit where supported;</li><li>access controls;</li><li>authentication systems;</li><li>logging and monitoring;</li><li>security testing;</li><li>employee access restrictions;</li><li>incident response procedures;</li><li>infrastructure security controls.</li></ul><p>However, no system can guarantee absolute security.</p><p>Users acknowledge that no method of electronic transmission or storage is completely secure.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-52">
+  <div class="section-heading">
+    <span class="section-number">52</span>
+    <h2>Security Responsibilities of Users</h2>
+  </div>
+  <div class="section-content">
+    <p>Users should:</p><ul><li>use strong passwords;</li><li>avoid sharing passwords;</li><li>enable available security features;</li><li>report suspected unauthorized access promptly;</li><li>keep devices reasonably secure.</li></ul><p>Failure to protect account credentials may increase the risk of unauthorized access.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-53">
+  <div class="section-heading">
+    <span class="section-number">53</span>
+    <h2>Data Retention</h2>
+  </div>
+  <div class="section-content">
+    <ul><li>provide the Service;</li><li>maintain account functionality;</li><li>comply with legal obligations;</li><li>enforce agreements;</li><li>resolve disputes;</li><li>investigate abuse;</li><li>maintain platform integrity;</li><li>improve services where permitted by law.</li></ul><p>Retention periods vary depending upon the nature of the information and applicable legal requirements.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-54">
+  <div class="section-heading">
+    <span class="section-number">54</span>
+    <h2>Backups</h2>
+  </div>
+  <div class="section-content">
+    <p>Backup copies are maintained for disaster recovery, security, operational continuity, and legal compliance.</p><p>Where reasonably practicable, backup information will be deleted or overwritten according to Mendai’s retention practices.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-55">
+  <div class="section-heading">
+    <span class="section-number">55</span>
+    <h2>Data Breaches</h2>
+  </div>
+  <div class="section-content">
+    <p>The timing, content, and method of any notification will depend upon the circumstances of the incident and applicable legal requirements.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-56">
+  <div class="section-heading">
+    <span class="section-number">56</span>
+    <h2>International Users</h2>
+  </div>
+  <div class="section-content">
+    <p>By using the Service, you acknowledge that privacy laws in these jurisdictions may differ from those in your country of residence.</p><p>Where required by law, Mendai will implement appropriate safeguards for international transfers.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-57">
+  <div class="section-heading">
+    <span class="section-number">57</span>
+    <h2>Third-Party Links</h2>
+  </div>
+  <div class="section-content">
+    <p>Mendai is not responsible for the privacy practices, security, or content of third-party services.</p><p>Users are encouraged to review the privacy policies of any third-party services they choose to access.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-58">
+  <div class="section-heading">
+    <span class="section-number">58</span>
+    <h2>Changes to This Privacy Policy</h2>
+  </div>
+  <div class="section-content">
+    <p>If material changes are made, Mendai may provide notice through the Service, by email, or by other reasonable means where required by applicable law.</p><p>The “Last Updated” date at the beginning of this Privacy Policy reflects the effective date of the most recent revision.</p><p>Continued use of the Service after updated policies become effective constitutes acceptance of those changes to the extent permitted by law.</p>
+  </div>
+</section>
+<section class="policy-section" id="section-59">
+  <div class="section-heading">
+    <span class="section-number">59</span>
+    <h2>Contact Information</h2>
+  </div>
+  <div class="section-content">
+    <p>Mended Family Inc. Doing Business As: Mendai</p><p>Support Email: <a class="inline-link" href="mailto:mendainetwork@gmail.com">mendainetwork@gmail.com</a></p>
+  </div>
+</section>
+<section class="policy-section" id="section-60">
+  <div class="section-heading">
+    <span class="section-number">60</span>
+    <h2>Acknowledgment</h2>
+  </div>
+  <div class="section-content">
+    <p>You acknowledge that Mendai may collect, process, store, and use information as described in this Privacy Policy and applicable law.</p><p>Nothing in this Privacy Policy limits any rights that cannot be waived under applicable law.</p>
+  </div>
+</section>
+      </article>
     </div>
 
-    <h2>7. AI Memory</h2>
-    <p>If AI memory features are available, the AI Guide may retain certain information that you voluntarily provide in order to personalize future conversations, improve continuity, remember preferences, provide contextually relevant responses, and improve matching recommendations.</p>
-    <p>Where available, Mendai may provide tools allowing users to review, edit, or delete AI memory associated with their account.</p>
-
-    <h2 style="margin-top: 24px;">8. AI Matching Information</h2>
-    <p>To generate compatibility recommendations, Mendai may process information including profile details, selected interests, communication preferences, optional questionnaires, interactions within the Service, engagement with AI Guide, community participation, and other information described in this Privacy Policy.</p>
-    <p>AI-generated recommendations are based on automated systems and may not always be accurate or complete.</p>
-  </div>
-
-  <!-- Section 9-16 -->
-  <div class="card">
-    <h2>9. Information Collected Automatically</h2>
-    <p>When you use Mendai, we may automatically collect certain technical information, including device model, operating system, application version, language settings, device identifiers where permitted by law, IP address, approximate location derived from IP, crash reports, performance diagnostics, network information, log data, and security events.</p>
-
-    <h2 style="margin-top: 24px;">10. Usage Information</h2>
-    <p>We may collect information about how you use Mendai, including features accessed, pages viewed, screens visited, buttons selected, searches performed, AI conversations initiated, session duration, interactions with recommendations, content engagement, and account settings.</p>
-
-    <h2 style="margin-top: 24px;">11. Location Information</h2>
-    <p>Depending on your device settings and permissions, Mendai may collect location information, which may include approximate location, city, state or province, country, and device-provided location if enabled. Certain features may be unavailable without location access.</p>
-
-    <h2 style="margin-top: 24px;">12. Contacts</h2>
-    <p>If you choose to grant permission, Mendai may access your device contacts solely for features that require such access, such as helping you connect with people you already know. Granting access is optional.</p>
-
-    <h2 style="margin-top: 24px;">13. Camera, Photos, and Microphone</h2>
-    <p>If you grant permission, Mendai may access your camera, photo library, or microphone. These permissions are used only to support features you choose to use, such as profile photos, uploading videos, voice messages, AI voice conversations, and video messages.</p>
-
-    <h2 style="margin-top: 24px;">14. Payment Information</h2>
-    <p>If you purchase subscriptions or other paid features, payment information is generally processed by third-party payment processors such as Apple App Store or Google Play. Mendai generally does not receive your complete payment card number.</p>
-
-    <h2 style="margin-top: 24px;">15. Information from Third Parties</h2>
-    <p>We may receive limited information from third parties, including app stores, authentication providers, analytics providers, fraud prevention providers, security providers, and customer support providers.</p>
-
-    <h2 style="margin-top: 24px;">16. Information Related to Safety</h2>
-    <p>To promote user safety, we may collect and maintain records related to user reports, moderation actions, blocked accounts, account warnings, appeals, investigations, abuse prevention, fraud prevention, and security incidents.</p>
-  </div>
-
-  <!-- Section 17-20 -->
-  <div class="card">
-    <h2>17. Sensitive Information</h2>
-    <p>Some users may voluntarily choose to share information that could be considered sensitive under applicable law (e.g., discussions of emotional well-being, life experiences, personal challenges, religious beliefs, political opinions, sexual orientation, racial background, health-related topics).</p>
-    <p>Mendai requests that users exercise caution before sharing sensitive information.</p>
-
-    <h2 style="margin-top: 24px;">18. Information You Should Not Share</h2>
-    <div class="callout-box">
-      <strong>Security Advisory:</strong>
-      <p>For your own protection, we strongly discourage sharing Social Security numbers, driver’s license numbers, passport numbers, banking credentials, credit card numbers in chat, account passwords, security question answers, cryptocurrency wallet recovery phrases, or confidential business information.</p>
-    </div>
-
-    <h2>19. Accuracy of Information</h2>
-    <p>You are responsible for ensuring that the information you provide is accurate and up to date. Providing inaccurate or misleading information may affect the quality of AI recommendations and other features.</p>
-
-    <h2 style="margin-top: 24px;">20. Changes in Information Collected</h2>
-    <p>As Mendai evolves, new features may require the collection of additional categories of information. If we materially change our information collection practices, we will update this Privacy Policy and provide notice where required by applicable law.</p>
-  </div>
-
-  <!-- Section 21-26 -->
-  <div class="card">
-    <h2>21. How We Use Information</h2>
-    <p>Mendai uses information we collect for legitimate business purposes, including to:</p>
-    <ul>
-      <li>create and manage user accounts; provide AI-powered matching recommendations; operate the AI Guide;</li>
-      <li>personalize the user experience; improve compatibility recommendations; display user profiles according to privacy settings;</li>
-      <li>facilitate communication between users; provide customer support; process subscriptions and purchases;</li>
-      <li>verify accounts where applicable; investigate abuse or fraud; maintain platform security; improve accessibility;</li>
-      <li>monitor system performance; develop new features; perform research and analytics; comply with legal obligations.</li>
-    </ul>
-
-    <h2 style="margin-top: 24px;">22. AI Personalization</h2>
-    <p>AI systems may use information you voluntarily provide to personalize conversations, remember preferences where AI memory is enabled, identify interests, recommend compatible users, and improve recommendations. Users should exercise independent judgment and should not rely solely on AI-generated recommendations when making important personal decisions.</p>
-
-    <h2 style="margin-top: 24px;">23. Automated Decision-Making</h2>
-    <p>Certain features may involve automated processing for compatibility recommendations, content ranking, spam detection, fraud detection, abuse prevention, and content moderation support.</p>
-
-    <h2 style="margin-top: 24px;">24. Improving Artificial Intelligence</h2>
-    <p>Subject to applicable law and settings, Mendai may use information you voluntarily provide to improve AI accuracy, safety systems, conversation quality, and matching algorithms.</p>
-
-    <h2 style="margin-top: 24px;">25. Safety and Security</h2>
-    <p>We use information to protect our users, employees, systems, and platform by detecting suspicious activity, preventing unauthorized access, investigating abuse, identifying fake accounts, and detecting malware.</p>
-
-    <h2 style="margin-top: 24px;">26. Customer Support</h2>
-    <p>Information may be used to respond to questions, investigate reported issues, resolve technical problems, process appeals, and improve customer service.</p>
-  </div>
-
-  <!-- Section 27-40 -->
-  <div class="card">
-    <h2>27. Communications & Notifications</h2>
-    <p>Mendai may communicate with users regarding account verification, password resets, security alerts, product updates, and service announcements. Depending on your settings, we may send push notifications, in-app notifications, email notifications, or SMS.</p>
-
-    <h2 style="margin-top: 24px;">28. Analytics & Cookies</h2>
-    <p>We may use analytics tools, cookies, pixels, local storage, and SDKs to understand usage patterns, maintain sessions, improve security, and measure performance.</p>
-
-    <h2 style="margin-top: 24px;">29. Advertising</h2>
-    <p>Mendai may display advertisements or sponsored content. Where legally required, users will be provided with appropriate choices regarding personalized advertising.</p>
-
-    <h2 style="margin-top: 24px;">30. Data Sharing & Service Providers</h2>
-    <p>We may share information with trusted third-party service providers (cloud hosting, payment processors, analytics, security providers). In the event of a merger, acquisition, or sale of assets, personal information may be transferred as part of that transaction.</p>
-
-    <h2 style="margin-top: 24px;">31. Legal Compliance & Rights Protection</h2>
-    <p>Mendai may disclose information if required to comply with law, legal processes, court orders, or to protect public safety and establish/defend legal claims.</p>
-
-    <h2 style="margin-top: 24px;">32. No Sale of Personal Information</h2>
-    <p>Mendai does not sell users’ personal information in exchange for money. We strictly adhere to data minimization practices.</p>
-  </div>
-
-  <!-- Section 41-50 -->
-  <div class="card">
-    <h2>33. Your Privacy Rights</h2>
-    <p>Depending on your jurisdiction, your rights may include the ability to request access, correction, deletion, a copy of certain information, object to processing, or withdraw consent.</p>
-
-    <h3 style="margin-top: 16px;">California Privacy Rights</h3>
-    <p>Residents of California may have additional rights under California law relating to access, deletion, data portability, and opting out of certain sharing activities.</p>
-
-    <h3>European Privacy Rights (GDPR)</h3>
-    <p>Users located in jurisdictions with GDPR-like laws have rights including access, rectification, erasure, restriction of processing, objection, and data portability.</p>
-
-    <h2 style="margin-top: 24px;">34. Children’s Privacy</h2>
-    <p>Mendai is not directed to children below the minimum age permitted under applicable law. We do not knowingly collect personal information from children.</p>
-
-    <h2 style="margin-top: 24px;">35. Security Measures</h2>
-    <p>Mendai employs encryption in transit, access controls, authentication systems, logging, and security testing. However, no method of electronic storage is 100% secure.</p>
-
-    <h2 style="margin-top: 24px;">36. Data Retention & Backups</h2>
-    <p>We retain personal information only for as long as reasonably necessary. Information may continue to exist in encrypted backup systems for a limited period after deletion requests for disaster recovery purposes.</p>
-  </div>
-
-  <!-- Contact & Acknowledgment -->
-  <div class="card">
-    <h2>37. Contact Information</h2>
-    <p>If you have questions regarding this Privacy Policy or wish to submit a privacy request, you may contact:</p>
-    <p style="margin-top: 8px;">
-      <strong>Mended Family Inc.</strong><br>
-      Doing Business As: <strong>Mendai</strong><br>
-      Support Email: <a href="mailto:mendainetwork@gmail.com">mendainetwork@gmail.com</a>
-    </p>
-
-    <h2 style="margin-top: 24px;">38. Acknowledgment</h2>
-    <p>By creating an account, accessing the Service, or continuing to use Mendai, you acknowledge that you have read and understood this Privacy Policy.</p>
-  </div>
-
-  <div class="footer-text">
-    &copy; 2026 Mended Family Inc. All rights reserved.
-  </div>
-
-</div>
-
+    <footer class="footer">
+      <strong>Mended Family Inc.</strong> &middot; Doing Business As: Mendai
+      <br />
+      <a class="back-to-top" href="#top">Back to top</a>
+    </footer>
+  </main>
 </body>
 </html>
